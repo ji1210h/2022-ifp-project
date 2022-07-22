@@ -14,13 +14,13 @@ body {
 }
 
 .body-line {
-    border: 2px solid black;
-    width: 1500px;
+    border: 1.5px solid black;
+    width: 1280px;
 }
 
 hr {
     border: 0;
-    height: 2px;
+    height: 1.5px;
     background: black;
 }
 
@@ -36,11 +36,11 @@ header {
 }
 
 .v-hr {
-    border-left: 2px solid black;
+    border-left: 1.5px solid black;
     height: 50px;
 }
 
-.nav-logo {
+.nav-top {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,7 +57,7 @@ header {
 
 .login {
     position: relative;
-    left: 600px;
+    left: 550px;
 }
 
 .nav {
@@ -87,10 +87,58 @@ header {
 
 .content img {
     opacity: 80%;
-    height: 530px;
-    width: 400px;
+    width: 407px;
+    height: 535px; 
 }
 
-.title h1 {
-    font-size: 50px;
+.text h1 {
+    font-size: 52px;
+    color: #341300;
+    line-height: 65px;
+}
+
+.text p {
+    font-size: 20px;
+    margin: 10px 0 20px;
+    color: #484848;
+}
+
+.btn {
+    border: 1px dashed black;
+    padding: 3px 5px;
+    
+}
+
+/* ------- best -------- */
+.best h1 {
+    font-family: 'El Messiri', sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.565em;
+    transform: rotate(-90deg);
+}
+
+.img-frame {
+    box-sizing: border-box;
+    width: 469px;
+    height: 377px;
+    background: #E7D9D3;
+    border: 1.5px solid black; 
+    margin: 0 70px;
+}
+
+.best-margin {
+    margin: 100px 0;
+}
+
+.best p {
+    width: 447px;
+    height: 192px;
+
+    font-family: 'Kaisei Tokumin';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 32px;
+
+    color: #484848;
 }
