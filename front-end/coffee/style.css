@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Kaisei Tokumin', serif;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.line {
+    margin-top: 40px;
+    border: 2px solid black;
+    width: 1280px;
+    height: 2880px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+hr {
+    margin-top: 5px;
+    border: 0;
+    height: 2px;
+    background: black;
+}
+
+/* -----------메뉴바------------ */
+header {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-nav {
+    padding: 20px;
+    border-bottom: 2px solid black;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 2px solid black;
+    font-family: 'El Messiri', sans-serif;
+}
+
+.nav li {
+    font-size: 20px;
+    margin-right: 200px;
+}
+
+li:last-child {
+    margin: 0;
+}
+
+/* ------------홈화면------------ */
+.home {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: 590px;
+    border-bottom: 2px solid black;
+}
+
+.title {
+    margin-top: 100px;
+    margin-left: 50px;
+}
+
+.home h1 {
+    width: 200px;
+    font-size: 52px;
+    color: #341300;
+    line-height: 65px;
+    margin-bottom: 10px;
+}
+
+.home p {
+    width: 350px;
+    font-size: 20px;
+    color: #484848;
+    margin-bottom: 30px;
+}
+
+.home .btn {
+    border: 1.5px dashed black;
+    padding: 3px 5px;
+}
+
+.home-img {
+    background: url(./cafe.jpg);
+    background-size: cover;
+    opacity: 80%;
+    width: 407px;
+    height: 535px; 
+}
+
+/* ---------best 화면-------- */
+
+.best {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 720px;
+    border-bottom: 2px solid black;
+}
+
+.menu {
+    transform: rotate(-90deg);
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-frame {
+    width: 469px;
+    height: 377px;
+    background: #E7D9D3;
+    border: 1.5px solid black; 
+    margin-right: 70px;
+}
+
+.favorite {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid black;
+}
+
+.text p {
+    width: 320px;
+}
+
+.best .btn {
+    border: 1.5px solid black;
+    padding: 3px 5px;
+    transition: 0.2s ease-in-out;
+}
+
+.best .btn:hover {
+    background-color: black;
+    color: #E7D9D3;
+}
