@@ -2,9 +2,11 @@
     margin: 0;
     padding: 0;
     list-style-type: none;
+    box-sizing: border-box;
 }
 
 body {
+    background-color: #EFE7E3;
     width: 100vw;
     height: 100vh;
     font-family: 'Kaisei Tokumin', serif;
@@ -30,6 +32,19 @@ hr {
     border: 0;
     height: 2px;
     background: black;
+}
+
+.menu {
+    transform: rotate(-90deg);
+    font-family: 'El Messiri', sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.565em;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* -----------메뉴바------------ */
@@ -78,7 +93,7 @@ li:last-child {
 .home h1 {
     width: 200px;
     font-size: 52px;
-    color: #341300;
+    /* color: #341300; */
     line-height: 65px;
     margin-bottom: 10px;
 }
@@ -104,30 +119,28 @@ li:last-child {
 }
 
 /* ---------best 화면-------- */
-
 .best {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     height: 720px;
     border-bottom: 2px solid black;
 }
 
-.menu {
-    transform: rotate(-90deg);
+.best .menu {
+    position: relative;
+    right: 20px;
 }
 
-.content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.best .content {
+    margin-right: 80px;
 }
 
 .img-frame {
     width: 469px;
     height: 377px;
     background: #E7D9D3;
-    border: 1.5px solid black; 
+    border: 2px solid black; 
     margin-right: 70px;
 }
 
@@ -136,19 +149,62 @@ li:last-child {
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}
+
+.text h2 {
+    font-size: 30px;
+}
+
+.text span {
+    font-size: 30px;
 }
 
 .text p {
-    width: 320px;
+    width: 450px;
+    margin: 10px 0 20px;
+    color: #484848;
+    font-size: 22px;
 }
 
 .best .btn {
     border: 1.5px solid black;
-    padding: 3px 5px;
+    padding: 5px 8px;
     transition: 0.2s ease-in-out;
 }
 
 .best .btn:hover {
     background-color: black;
     color: #E7D9D3;
+}
+
+/* --------레시피-------- */
+.recipe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 720px;
+    border-bottom: 2px solid black;
+}
+
+.recipe .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: #E7D9D3;
+}
+
+.circle img {
+    width: 280px;
+    height: 280px;
 }
