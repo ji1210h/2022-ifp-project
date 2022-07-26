@@ -1,4 +1,3 @@
 __pycache__/
 *.py[cod]
 back-end/study/venv/
-back-end/study/db.sqlite3
