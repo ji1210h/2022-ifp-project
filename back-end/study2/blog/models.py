@@ -46,3 +46,9 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.short_content
+
+def get_post_model():
+    return Post
+
+def get_comment_model():
+    return Comment
