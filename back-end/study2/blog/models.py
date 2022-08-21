@@ -52,3 +52,9 @@ def get_post_model():
 
 def get_comment_model():
     return Comment
+
+def get_category_model():
+    return Category
+
+def get_tag_model():
+    return Tag

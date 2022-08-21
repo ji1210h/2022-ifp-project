@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
-from blog.models import get_post_model, get_comment_model
+from blog.models import get_category_model, get_post_model, get_comment_model, get_tag_model
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -27,3 +27,21 @@ class PostLikeSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_post_model()
         fields = ['like']
+        
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = get_category_model()
+        fields = ['name']
+        
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = get_tag_model()
+        fields = ['name']
+        
+# class CateTagSerializer(serializers.Serializer):
+#     catelist = CategorySerializer(many=True)
+#     taglist = TagSerializer(many=True)
+
+class CateTagSerializer(serializers.Serializer):
+    catelist = serializers.ListField(child=serializers.CharField())
+    taglist = serializers.ListField(child=serializers.CharField())
