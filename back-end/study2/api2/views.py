@@ -16,9 +16,10 @@
 #     queryset = get_comment_model().objects.all()
 #     serializer_class = CommentSerializer
 
+from rest_framework.views import APIView
 from rest_framework.generics import ListAPIView, RetrieveAPIView,CreateAPIView, UpdateAPIView
-from blog.models import Comment, Post
-from .serializers import CommentSerializer, PostListSerializer, PostRetrieveSerializer, PostLikeSerializer
+from blog.models import Category, Comment, Post, Tag
+from .serializers import CateTagSerializer, CommentSerializer, PostListSerializer, PostRetrieveSerializer, PostLikeSerializer
 from rest_framework.response import Response
 class PostListAPIView(ListAPIView):
     queryset = Post.objects.all()
@@ -35,7 +36,7 @@ class CommentCreateAPIView(CreateAPIView):
 class PostLikeAPIView(UpdateAPIView):
     queryset = Post.objects.all()
     serializer_class =PostLikeSerializer
-    
+    #PACTH method
     def update(self, request, *args, **kwargs):
         partial = kwargs.pop('partial', False)
         instance = self.get_object()
@@ -49,3 +50,16 @@ class PostLikeAPIView(UpdateAPIView):
             # forcibly invalidate the prefetch cache on the instance.
             instance._prefetched_objects_cache = {}
         return Response(data['like'])
+    
+    
+class CateTagAPIView(APIView):
+    def get(self, request, *args, **kwargs):
+        cateList = Category.objects.all()
+        tagList = Tag.objects.all()
+        data={
+            'catelist': cateList,
+            'taglist': tagList,
+        }
+        
+        serializer = CateTagSerializer(instance=data)
+        return Response(serializer.data)
