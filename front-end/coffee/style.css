@@ -1,213 +1,221 @@
 * {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #EFE7E3;
-    width: 100vw;
-    height: 100vh;
-    font-family: 'Kaisei Tokumin', serif;
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
+  background-color: #efe7e3;
+  width: 100vw;
+  height: 100vh;
+  font-family: "Kaisei Tokumin", serif;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
 }
 
 .line {
-    margin-top: 40px;
-    border: 2px solid black;
-    width: 1280px;
-    height: 2880px;
+  margin-top: 40px;
+  border: 2px solid black;
+  width: 1280px;
+  height: 2880px;
 }
 
 a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 hr {
-    margin-top: 5px;
-    border: 0;
-    height: 2px;
-    background: black;
+  margin-top: 5px;
+  border: 0;
+  height: 2px;
+  background: black;
 }
 
 .menu {
-    transform: rotate(-90deg);
-    font-family: 'El Messiri', sans-serif;
-    font-size: 24px;
-    letter-spacing: 0.565em;
+  transform: rotate(-90deg);
+  font-family: "El Messiri", sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.565em;
+  position: absolute;
+  left: 15px;
 }
 
 .content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* -----------메뉴바------------ */
 header {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  font-size: 30px;
 }
 
 .top-nav {
-    padding: 20px;
-    border-bottom: 2px solid black;
-    
+  padding: 20px;
+  border-bottom: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    border-bottom: 2px solid black;
-    font-family: 'El Messiri', sans-serif;
-    position: fixed;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 15px; */
+  border-bottom: 2px solid black;
+  font-family: "El Messiri", sans-serif;
 }
 
 .nav li {
-    font-size: 20px;
-    margin-right: 200px;
+  font-size: 20px;
+  padding: 13px 100px;
+  border-left: 2px solid black;
 }
 
 li:last-child {
-    margin: 0;
+  border-right: 2px solid black;
 }
 
 /* ------------홈화면------------ */
 .home {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    height: 590px;
-    border-bottom: 2px solid black;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 590px;
+  border-bottom: 2px solid black;
 }
 
 .title {
-    margin-top: 100px;
-    margin-left: 50px;
+  margin-top: 100px;
+  margin-left: 50px;
 }
 
 .home h1 {
-    width: 200px;
-    font-size: 52px;
-    /* color: #341300; */
-    line-height: 65px;
-    margin-bottom: 10px;
+  width: 200px;
+  font-size: 52px;
+  /* color: #341300; */
+  line-height: 65px;
+  margin-bottom: 10px;
 }
 
 .home p {
-    width: 350px;
-    font-size: 20px;
-    color: #484848;
-    margin-bottom: 30px;
+  width: 350px;
+  font-size: 20px;
+  color: #484848;
+  margin-bottom: 30px;
 }
 
 .home .btn {
-    border: 1.5px dashed black;
-    padding: 3px 5px;
+  border: 1.5px dashed black;
+  padding: 3px 5px;
 }
 
 .home-img {
-    background: url(./cafe.jpg);
-    background-size: cover;
-    opacity: 80%;
-    width: 407px;
-    height: 535px; 
+  background: url(./cafe.jpg);
+  background-size: cover;
+  opacity: 80%;
+  width: 407px;
+  height: 535px;
 }
 
 /* ---------best 화면-------- */
 .best {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 720px;
-    border-bottom: 2px solid black;
-}
-
-.best .menu {
-    position: relative;
-    right: 20px;
-}
-
-.best .content {
-    margin-right: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 720px;
+  border-bottom: 2px solid black;
+  position: relative;
 }
 
 .img-frame {
-    width: 469px;
-    height: 377px;
-    background: #E7D9D3;
-    border: 2px solid black; 
-    margin-right: 70px;
+  width: 469px;
+  height: 377px;
+  background: #e7d9d3;
+  border: 2px solid black;
+  margin-right: 70px;
 }
 
 .favorite {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid black;
-    padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid black;
+  padding-bottom: 10px;
 }
 
 .text h2 {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 .text span {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 .text p {
-    width: 450px;
-    margin: 10px 0 20px;
-    color: #484848;
-    font-size: 22px;
+  width: 450px;
+  margin: 10px 0 20px;
+  color: #484848;
+  font-size: 22px;
 }
 
 .best .btn {
-    border: 1.5px solid black;
-    padding: 5px 8px;
-    transition: 0.2s ease-in-out;
+  border: 1.5px solid black;
+  padding: 5px 8px;
+  transition: 0.2s ease-in-out;
 }
 
 .best .btn:hover {
-    background-color: black;
-    color: #E7D9D3;
+  background-color: black;
+  color: #e7d9d3;
 }
 
 /* --------레시피-------- */
 .recipe {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 720px;
-    border-bottom: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 720px;
+  border-bottom: 2px solid black;
+  position: relative;
 }
 
 .recipe .content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .circle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 300px;
-    height: 300px;
-    border: 2px solid black;
-    border-radius: 50%;
-    background-color: #E7D9D3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: #e7d9d3;
 }
 
 .circle img {
-    width: 280px;
-    height: 280px;
+  width: 280px;
+  height: 280px;
+}
+
+.recipe h3 {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 28px;
+  font-family: "El Messiri", sans-serif;
 }
