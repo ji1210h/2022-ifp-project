@@ -1,64 +1,64 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #EFE7E3;
-    width: 100vw;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #efe7e3;
+  width: 100vw;
+  height: 100vh;
 }
 
 .line {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 1200px;
-    height: 700px;
-    border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 1200px;
+  height: 700px;
+  border: 2px solid black;
 }
 
 .title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 h1 {
-    text-align: center;
-    font-size: 40px;
-    border-bottom: 2px solid black;
+  text-align: center;
+  font-size: 40px;
+  border-bottom: 2px solid black;
 }
 
 p {
-    letter-spacing: ;
+  letter-spacing: ;
 }
 
 form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 input {
-    border: 1.5px solid black;
-    font-size: 17px;
-    padding: 30px;
-    width: 360px;
-    height: 50px;
-    margin-bottom: 20px;
+  border: 1.5px solid black;
+  font-size: 17px;
+  padding: 30px;
+  width: 360px;
+  height: 50px;
+  margin-bottom: 20px;
 }
 
 button {
-    border: 1.5px solid black;
-    font-size: 17px;
-    width: 360px;
-    height: 50px;
+  border: 1.5px solid black;
+  font-size: 17px;
+  width: 360px;
+  height: 50px;
 }
