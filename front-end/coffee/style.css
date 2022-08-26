@@ -16,7 +16,7 @@ body {
 }
 
 .line {
-  margin-top: 40px;
+  margin-top: 50px;
   border: 2px solid black;
   width: 1280px;
   height: 2880px;
@@ -71,7 +71,6 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding: 15px; */
   border-bottom: 2px solid black;
   font-family: "El Messiri", sans-serif;
 }
@@ -103,7 +102,6 @@ li:last-child {
 .home h1 {
   width: 200px;
   font-size: 52px;
-  /* color: #341300; */
   line-height: 65px;
   margin-bottom: 10px;
 }
@@ -205,6 +203,12 @@ li:last-child {
   border: 2px solid black;
   border-radius: 50%;
   background-color: #e7d9d3;
+  margin: 0 20px;
+}
+
+.small {
+  width: 80px;
+  height: 80px;
 }
 
 .circle img {
@@ -218,4 +222,18 @@ li:last-child {
   font-weight: 500;
   font-size: 28px;
   font-family: "El Messiri", sans-serif;
+}
+
+.side-menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 65px;
+  background: #e7d9d3;
+  padding: 30px 15px;
+  border-radius: 40px;
+}
+
+.side-menu img {
+  margin: 10px 0;
 }
