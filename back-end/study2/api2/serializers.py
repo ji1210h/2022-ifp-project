@@ -9,6 +9,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['url', 'username', 'email', 'is_staff']
         
 class PostListSerializer(serializers.ModelSerializer):
+    category = serializers.CharField(source="Category.name")
     class Meta:
         model = get_post_model()
         fields = ['id', 'title', 'image', 'like', 'category']
