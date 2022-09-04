@@ -1,7 +1,7 @@
 from contextlib import AbstractContextManager
 from django.contrib.auth import get_user_model
 from django.db import models
-from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
+from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, User
 
 # Create your models here.
 
@@ -14,8 +14,8 @@ class Post(models.Model):
     content = models.TextField('CONTENT')
     create_dt = models.DateTimeField('CREATE DT', auto_now_add=True)
     update_dt = models.DateTimeField('UPDATE DT', auto_now=True)
-    bookmark_user = models.ManyToManyField(get_user_model(), blank=True)
-    user = models.ForeignKey('User', on_delete=models.CASCADE)
+    bookmark_user = models.ManyToManyField('User', blank=True)
+    user = models.ForeignKey('User', on_delete=models.CASCADE, related_name="Post")
     
     class Meta:
         ordering = ('update_dt',)
@@ -69,12 +69,13 @@ class UserManager(BaseUserManager): #유저 생성시 사용하는 Helper class
         return user
     
 class User(AbstractBaseUser): # 실제 user 모델
-    email = models.EmailField(
+    email = models.EmailField( # email 필드 추가
         verbose_name='email',
         max_length=255,
         unique=True,
         
     )
+    username = models.CharField(max_length=20, unique=True)
     date_of_birth = models.DateField()
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
@@ -84,6 +85,8 @@ class User(AbstractBaseUser): # 실제 user 모델
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['date_of_birth']
     
+    class Meta:
+        abstract = False
     def __str__(self):
         return self.email
     
