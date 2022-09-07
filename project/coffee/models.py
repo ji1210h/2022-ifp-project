@@ -1,5 +1,3 @@
-from contextlib import AbstractContextManager
-from django.contrib.auth import get_user_model
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, User
 
@@ -42,7 +40,7 @@ class Material(models.Model):
         return self.name
 
 class UserManager(BaseUserManager): #유저 생성시 사용하는 Helper class
-    def create_user(self, email, date_of_birth, password=None):
+    def create_user(self, email, date_of_birth, username, password=None, profile_image=None):
         if not email: 
             raise ValueError('Users must have an email address')
          #django에서 제공해주는 user모델을 보면 email 파라메터 자리에 username이 있음,
@@ -50,7 +48,9 @@ class UserManager(BaseUserManager): #유저 생성시 사용하는 Helper class
         # email을 입력하지 않는 경우 ValueError를 return
         user = self.model(
             email = self.normalize_email(email),
-            date_of_birth=date_of_birth,
+            date_of_birth = date_of_birth,
+            profile_image = profile_image,
+            username = username
         )
         
         user.set_password(password)
@@ -76,6 +76,7 @@ class User(AbstractBaseUser): # 실제 user 모델
         
     )
     username = models.CharField(max_length=20, unique=True)
+    profile_image = models.ImageField(upload_to="profile/%Y/%m", blank=True, null=True)
     date_of_birth = models.DateField()
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
@@ -99,3 +100,6 @@ class User(AbstractBaseUser): # 실제 user 모델
     @property
     def is_staff(self):
         return self.is_admin
+    
+    def get_user_model():
+        return User
