@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #3a1b11;
+  font-family: "Hahmlet", serif;
+  text-decoration: none;
+}
+
+body {
+  height: 92vh;
+  background-size: cover;
+  background-color: #efe7e3;
+  margin: 2%;
+  border: 2px solid #3a1b11;
+  text-align: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo i {
+  margin: 0 5px;
+  font-size: 58px;
+}

@@ -52,12 +52,16 @@ input {
   margin-bottom: 15px;
 }
 
+input::placeholder {
+  color: rgb(161, 161, 161);
+}
+
 button {
   border: 1.5px solid black;
   width: 360px;
   height: 60px;
   background: #3d2a2a;
   color: #fff;
-  font-size: 30px;
+  font-size: 25px;
   line-height: 30px;
 }
