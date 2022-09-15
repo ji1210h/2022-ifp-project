@@ -12,7 +12,6 @@ body {
   font-family: "Kaisei Tokumin", serif;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
 }
 
 .line {
@@ -90,7 +89,7 @@ li:last-child {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  height: 590px;
+
   border-bottom: 2px solid black;
 }
 
@@ -119,11 +118,12 @@ li:last-child {
 }
 
 .home-img {
-  background: url(./cafe.jpg);
+  background: url(../img/cafe.jpg);
   background-size: cover;
   opacity: 80%;
   width: 407px;
   height: 535px;
+  margin-bottom: 30px;
 }
 
 /* ---------best 화면-------- */
