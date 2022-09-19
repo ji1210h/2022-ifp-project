@@ -4,10 +4,10 @@
   color: #3a1b11;
   font-family: "Hahmlet", serif;
   text-decoration: none;
+  list-style-type: none;
 }
 
 body {
-  height: 92vh;
   background-size: cover;
   background-color: #efe7e3;
   margin: 2%;
