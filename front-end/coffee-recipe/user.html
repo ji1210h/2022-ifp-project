@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/user-frame.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=El+Messiri&family=Hahmlet:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/6212e88fd3.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header>
@@ -17,12 +26,34 @@
       </ul>
     </header>
 
-    <aside class="profile">
-      <div class="profile-img"></div>
-      <div class="profile-text">
-        <h2>이지희</h2>
-        <p>jihee@coffee.com</p>
+    <section>
+      <aside class="profile">
+        <div class="profile-img"></div>
+        <div class="profile-text">
+          <h2>이지희</h2>
+          <p>jihee@coffee.com</p>
+        </div>
+      </aside>
+      <div class="wrapper">
+        <form action="">
+          <select name="category" id="">
+            <option value="none">카테고리</option>
+            <option value="1">1</option>
+            <option value="1">1</option>
+          </select>
+          <input type="button" value="삭제" />
+          <input type="button" value="글쓰기" />
+        </form>
+        <div class="content-box">
+          <ul class="content-nav">
+            <li></li>
+            <li>제목</li>
+            <li>카테고리</li>
+            <li>게시일</li>
+            <li>좋아요</li>
+          </ul>
+        </div>
       </div>
-    </aside>
+    </section>
   </body>
 </html>
