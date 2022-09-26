@@ -1,4 +1,4 @@
-.nav a:first-child li {
+.nav a:nth-child(2) li {
   color: #a96653;
 }
 
