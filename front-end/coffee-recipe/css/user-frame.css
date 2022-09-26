@@ -10,7 +10,7 @@ header i {
   font-size: 30px;
 }
 
-.nav li {
+.nav a li {
   display: inline-block;
   margin: 10px 30px;
 }
@@ -46,24 +46,17 @@ section {
   margin: 2.5% auto;
 }
 
-.wrapper form {
-  margin-bottom: 20px;
+.change {
+  text-align: start;
 }
 
-.content-box {
-  width: 920px;
-  height: 100vh;
-  border: 2px solid #3a1b11;
+.change div {
+  width: 346px;
+  height: 49px;
+  background: #ffffff;
+  border: 1.5px solid #1e1e1e;
 }
 
-.content-nav {
-  border-bottom: 2px solid #3a1b11;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 5%;
-}
-
-.content-nav li:nth-child(2) {
-  margin: 0 100px;
+.password div {
+  width: 624px;
 }
