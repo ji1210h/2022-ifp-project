@@ -16,10 +16,10 @@ class PostAdmin(admin.ModelAdmin):
         return super().get_queryset(request).prefetch_related('tags')
     
     def bookmark_list(self, obj):
-        return ','.join([t.username for t in obj.bookmark.all()])
+        return ','.join([t.username for t in obj.bookmark_user.all()])
     
     def get_queryset(self, request):
-        return super().get_queryset(request).prefetch_related('bookmark')
+        return super().get_queryset(request).prefetch_related('bookmark_user')
     
     def material_list(self, obj):
         return ','.join([t.name for t in obj.material.all()])
