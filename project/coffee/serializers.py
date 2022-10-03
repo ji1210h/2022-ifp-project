@@ -60,3 +60,9 @@ class LoginSerializer(serializers.Serializer):
             'username' : user.username,
             'last_login' : user.last_login
         }
+        
+class UserReadSerializer(serializers.ModelSerializer):
+    post_set = serializers.SlugRelatedField(many=True, slug_field='title', read_only=True)
+    class Meta:
+        model = User
+        fields = ['profile_image','username','date_of_birth', 'post_set']

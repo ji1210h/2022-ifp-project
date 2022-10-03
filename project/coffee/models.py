@@ -1,4 +1,8 @@
+import imp
 from django.db import models
+import jwt
+from datetime import datetime, timedelta
+from django.conf import settings
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, User
 
 # Create your models here.
@@ -101,5 +105,18 @@ class User(AbstractBaseUser): # 실제 user 모델
     def is_staff(self):
         return self.is_admin
     
+    @property
+    def token(self):
+        return self._generate_jwt_token()
+    
+    def _generate_jwt_token(self):
+        dt = datetime.now() + timedelta(days=60)
+        
+        token = jwt.encode({
+            'id' : self.pk,
+            'exp':dt.utcfromtimestamp(dt.timestamp())
+        }, settings.SECRET_KEY, algorithm='HS256')
+        
+        return token
     def get_user_model():
         return User

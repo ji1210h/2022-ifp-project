@@ -1,6 +1,6 @@
 import json
 from rest_framework.renderers import JSONRenderer
-
+from rest_framework.utils import encoders
 class UserJSONRenderer(JSONRenderer):
     charset = 'utf-8'
     
@@ -16,5 +16,5 @@ class UserJSONRenderer(JSONRenderer):
             data['token'] = token.decode('utf-8')
         
         return json.dumps({
-           'user': data
+           'user': data,
        })
