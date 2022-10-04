@@ -7,13 +7,10 @@ from coffee.forms import UserChangeForm, UserCreationForm
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('id', 'category', 'tag_list', 'title','material_list', 'image','create_dt', 'update_dt', 'bookmark_list')
+    list_display = ('id', 'category', 'title','material_list', 'image','create_dt', 'update_dt', 'bookmark_list')
 
     def tag_list(self, obj):
         return ','.join([t.name for t in obj.tags.all()])
-    
-    def get_queryset(self, request):
-        return super().get_queryset(request).prefetch_related('tags')
     
     def bookmark_list(self, obj):
         return ','.join([t.username for t in obj.bookmark_user.all()])
