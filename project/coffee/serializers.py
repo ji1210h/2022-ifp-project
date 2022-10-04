@@ -13,7 +13,14 @@ class UserCreateSerializer(serializers.ModelSerializer):
     )
     class Meta:
         model = User
-        fields = ['email','profile_image','username','password','date_of_birth','token']
+        fields = [
+            'email',
+            'profile_image',
+            'username',
+            'password',
+            'date_of_birth',
+            'token'
+            ]
     
     token = serializers.CharField(max_length = 255, read_only = True)
     
@@ -24,7 +31,7 @@ class UserCreateSerializer(serializers.ModelSerializer):
 class LoginSerializer(serializers.Serializer):
     email = serializers.EmailField()
     username = serializers.CharField(max_length=255, read_only=True) #로그인에서 사용하지 않지만 값은 반환 해야 되기에 #read_only
-    password = serializers.CharField(max_length=20, write_only=True) #보안상의 문제로 반환하면 안 되기에 write_only
+    password = serializers.CharField(max_length=24, write_only=True) #보안상의 문제로 반환하면 안 되기에 write_only
     last_login = serializers.CharField(max_length=255, read_only=True)
     
     def validate(self, data):
@@ -63,6 +70,47 @@ class LoginSerializer(serializers.Serializer):
         
 class UserReadSerializer(serializers.ModelSerializer):
     post_set = serializers.SlugRelatedField(many=True, slug_field='title', read_only=True)
+    # profile_image = serializers.ImageField(use_url=True)
     class Meta:
         model = User
-        fields = ['profile_image','username','date_of_birth', 'post_set']
+        fields = [
+            'profile_image',
+            'username',
+            'date_of_birth',
+            'post_set'
+            ]
+
+class UserUpdateSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(
+        max_length = 24,
+        min_length = 8,
+        
+    )
+    
+    class Meta:
+        model = User
+        fields = [
+            'profile_image',
+            'email',
+            'username',
+            'password',
+            'date_of_birth',
+            'token',
+        ]
+        
+        read_only_fields = ('email', 'password', 'date_of_birth', 'token',)
+        
+    def update(self, instance, validated_data):
+        
+        password = validated_data.pop('password', None)
+        
+        for (key, value) in validated_data.items():
+            setattr(instance, key, value)
+            
+        if password is not None:
+            instance.set_password(password)
+    
+        instance.save()
+        
+        return instance
+    

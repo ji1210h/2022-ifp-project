@@ -9,7 +9,6 @@ from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, User
 
 class Post(models.Model):
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
-    tags = models.ManyToManyField('Tag', blank=True)
     title = models.CharField('TITLE', max_length=50)
     material = models.ManyToManyField('Material')
     image = models.ImageField('IMAGE', upload_to='coffee/%Y/%m', blank=True, null=True)
@@ -107,16 +106,15 @@ class User(AbstractBaseUser): # 실제 user 모델
     
     @property
     def token(self):
-        return self._generate_jwt_token()
-    
+        return self._generate_jwt_token( )
+
     def _generate_jwt_token(self):
-        dt = datetime.now() + timedelta(days=60)
-        
+        dt = datetime.now( ) + timedelta(days=60)
+
         token = jwt.encode({
-            'id' : self.pk,
-            'exp':dt.utcfromtimestamp(dt.timestamp())
+            'id': self.pk,
+            'exp': dt.utcfromtimestamp(dt.timestamp())
         }, settings.SECRET_KEY, algorithm='HS256')
-        
+
         return token
-    def get_user_model():
-        return User
+    
