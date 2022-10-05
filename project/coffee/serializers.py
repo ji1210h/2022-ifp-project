@@ -29,11 +29,11 @@ class UserCreateSerializer(serializers.ModelSerializer):
         return User.objects.create_user(**User_data)
 
 class LoginSerializer(serializers.Serializer):
-    email = serializers.EmailField()
+    email = serializers.EmailField(write_only=True)
     username = serializers.CharField(max_length=255, read_only=True) #로그인에서 사용하지 않지만 값은 반환 해야 되기에 #read_only
     password = serializers.CharField(max_length=24, write_only=True) #보안상의 문제로 반환하면 안 되기에 write_only
     last_login = serializers.CharField(max_length=255, read_only=True)
-    
+    token = serializers.CharField(max_length=255, read_only=True)
     def validate(self, data):
         email = data.get('email', None)
         password = data.get('password', None)
@@ -47,7 +47,7 @@ class LoginSerializer(serializers.Serializer):
                 "비밀번호를 입력해주세요."
             )
         
-        user = authenticate(username=email, password=password)
+        user = authenticate(email=email, password=password)
         
         if user is None:
             raise serializers.ValidationError(
@@ -62,10 +62,9 @@ class LoginSerializer(serializers.Serializer):
         user.last_login = timezone.now()
         user.save(update_fields=['last_login'])
         
+        
         return{
-            'email': user.email,
-            'username' : user.username,
-            'last_login' : user.last_login
+            'token' : user.token
         }
         
 class UserReadSerializer(serializers.ModelSerializer):

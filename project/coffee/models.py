@@ -112,9 +112,9 @@ class User(AbstractBaseUser): # 실제 user 모델
         dt = datetime.now( ) + timedelta(days=60)
 
         token = jwt.encode({
-            'id': self.pk,
+            'username': self.username,
             'exp': dt.utcfromtimestamp(dt.timestamp())
         }, settings.SECRET_KEY, algorithm='HS256')
 
-        return token
+        return token.decode()
     
