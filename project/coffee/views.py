@@ -29,13 +29,12 @@ class UserCreateAPIView(APIView): # 회원가입 view
 
 class LoginAPIView(APIView): #로그인 view
     permission_classes = (AllowAny,)
-    renderer_classes = (UserJSONRenderer,)
+    # renderer_classes = (UserJSONRenderer,)
     serializer_class = LoginSerializer
     
     def post(self, request):
-        user = request.data
-        
-        serializer = self.serializer_class(data=user)
+        loginUser = request.data
+        serializer = self.serializer_class(data=loginUser)
         serializer.is_valid(raise_exception=True)
         
         return Response(serializer.data, status=status.HTTP_200_OK)
