@@ -34,7 +34,7 @@ class LoginSerializer(serializers.Serializer):
     email = serializers.EmailField(write_only=True)
     # username = serializers.CharField(max_length=255, read_only=True) #로그인에서 사용하지 않지만 값은 반환 해야 되기에 #read_only
     password = serializers.CharField(max_length=24, write_only=True) #보안상의 문제로 반환하면 안 되기에 write_only
-    # last_login = serializers.CharField(max_length=255, read_only=True)
+    last_login = serializers.CharField(max_length=255, read_only=True)
     token = serializers.CharField(max_length=255, read_only=True)
     def validate(self, data):
         email = data.get('email', None)
