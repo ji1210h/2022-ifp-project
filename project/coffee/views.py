@@ -1,4 +1,5 @@
 from os import stat
+import os
 from django.shortcuts import render
 from rest_framework import status
 from rest_framework.permissions import AllowAny, IsAuthenticated
@@ -10,7 +11,6 @@ from rest_framework.generics import RetrieveAPIView
 from .serializers import *
 from .models import User, Post
 from .renderers import UserJSONRenderer
-from coffee import serializers
 # Create your views here.
 class UserCreateAPIView(APIView): # 회원가입 view
     queryset = User.objects.all()
@@ -45,6 +45,7 @@ class UserReadAPIView(RetrieveAPIView):
     # renderer_classes = (UserJSONRenderer,)
 
     queryset = User.objects.all()
+    
 
 class UserRetrieveUpdateAPIView(RetrieveUpdateAPIView):
     permission_classes = (IsAuthenticated,)
@@ -67,4 +68,6 @@ class UserRetrieveUpdateAPIView(RetrieveUpdateAPIView):
         serializer.save()
         
         return Response(serializer.data, status=status.HTTP_200_OK)
-        
+    
+    def delete(self, *args, **kwargs):
+        os.remove(os.path.join)

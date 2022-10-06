@@ -1,4 +1,5 @@
 import imp
+import os
 from django.db import models
 import jwt
 from datetime import datetime, timedelta
@@ -116,5 +117,8 @@ class User(AbstractBaseUser): # 실제 user 모델
             'exp': dt.utcfromtimestamp(dt.timestamp())
         }, settings.SECRET_KEY, algorithm='HS256')
 
-        return token.decode()
+        return token
     
+    def delete(self,*args,**kwargs):
+	    os.remove(os.path.join(settings.MEDIA_ROOT, self.profile_image.name))
+	    super(User, self).delete(*args,**kwargs)
