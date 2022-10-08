@@ -8,7 +8,7 @@ from rest_framework import serializers
 from .models import User, Post
 
 class UserCreateSerializer(serializers.ModelSerializer):
-    
+    profile_image = serializers.ImageField(use_url=True, default= "profile/2022/10/default.png")
     password = serializers.CharField(
         max_length = 24,
         min_length = 8,
@@ -85,7 +85,7 @@ class UserReadSerializer(serializers.ModelSerializer):
             ]
 
 class UserUpdateSerializer(serializers.ModelSerializer):
-    profile_image = serializers.ImageField(use_url=True,default = True)
+    profile_image = serializers.ImageField(use_url=True,default = "profile/2022/10/default.png")
     password = serializers.CharField( max_length = 24, min_length = 8)
     post_set = serializers.SlugRelatedField(many=True, slug_field='title', read_only=True)
     Post = serializers.SlugRelatedField(many=True, slug_field='title', read_only=True)

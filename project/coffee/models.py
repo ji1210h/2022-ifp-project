@@ -80,7 +80,7 @@ class User(AbstractBaseUser): # 실제 user 모델
         
     )
     username = models.CharField(max_length=20, unique=True)
-    profile_image = models.ImageField(upload_to="profile/%Y/%m", blank=True,)
+    profile_image = models.ImageField(upload_to="profile/%Y/%m", default="profile/2022/10/default.png")
     date_of_birth = models.DateField()
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
