@@ -1,4 +1,3 @@
-import imp
 import os
 from django.db import models
 import jwt
@@ -61,12 +60,13 @@ class UserManager(BaseUserManager): #유저 생성시 사용하는 Helper class
         user.save(using=self._db)
         return user
     
-    def create_superuser(self, email, date_of_birth, password):
+    def create_superuser(self, email, date_of_birth, password, username):
         #위와 같은 사유로 email로 치환
         user = self.create_user(
-            email,
+            email=self.normalize_email(email),
             password=password,
             date_of_birth=date_of_birth,
+            username=username,
         )
         user.is_admin = True
         user.save(using=self._db)
@@ -80,7 +80,7 @@ class User(AbstractBaseUser): # 실제 user 모델
         
     )
     username = models.CharField(max_length=20, unique=True)
-    profile_image = models.ImageField(upload_to="profile/%Y/%m", blank=True, null=True)
+    profile_image = models.ImageField(upload_to="profile/%Y/%m", blank=True,)
     date_of_birth = models.DateField()
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
@@ -88,7 +88,7 @@ class User(AbstractBaseUser): # 실제 user 모델
     objects = UserManager()
     
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['date_of_birth']
+    REQUIRED_FIELDS = ['date_of_birth', 'username']
     
     class Meta:
         abstract = False
@@ -117,8 +117,12 @@ class User(AbstractBaseUser): # 실제 user 모델
             'exp': dt.utcfromtimestamp(dt.timestamp())
         }, settings.SECRET_KEY, algorithm='HS256')
 
-        return token
+        return token.decode()
     
     def delete(self,*args,**kwargs):
-	    os.remove(os.path.join(settings.MEDIA_ROOT, self.profile_image.name))
-	    super(User, self).delete(*args,**kwargs)
+        if self.profile_image != "null":
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.profile_image.name))
+        super(User, self).delete(*args, **kwargs)
+    
+    def update(self, *args, **kwargs):
+        os.remove(os.path.join(settings.MEDIA_ROOT, self.profile_image.name))

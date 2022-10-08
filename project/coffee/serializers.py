@@ -1,4 +1,5 @@
 from asyncio.windows_events import NULL
+from email.policy import default
 import profile
 from unittest.util import _MAX_LENGTH
 from django.contrib.auth import authenticate
@@ -71,6 +72,7 @@ class LoginSerializer(serializers.Serializer):
         
 class UserReadSerializer(serializers.ModelSerializer):
     post_set = serializers.SlugRelatedField(many=True, slug_field='title', read_only=True)
+    Post = serializers.SlugRelatedField(many=True, slug_field='title', read_only=True)
     profile_image = serializers.ImageField(use_url=True)
     class Meta:
         model = User
@@ -79,11 +81,11 @@ class UserReadSerializer(serializers.ModelSerializer):
             'username',
             'date_of_birth',
             'post_set',
-            ''
+            'Post'
             ]
 
 class UserUpdateSerializer(serializers.ModelSerializer):
-    profile_image = serializers.ImageField(use_url=True, default=NULL)
+    profile_image = serializers.ImageField(use_url=True,default = True)
     password = serializers.CharField( max_length = 24, min_length = 8)
     post_set = serializers.SlugRelatedField(many=True, slug_field='title', read_only=True)
     Post = serializers.SlugRelatedField(many=True, slug_field='title', read_only=True)
@@ -101,10 +103,9 @@ class UserUpdateSerializer(serializers.ModelSerializer):
         
         read_only_fields = ('email', 'date_of_birth', 'post_set', 'Post')
         
-    def update(self, instance, validated_data):
+    def update( self, instance, validated_data):
         
         password = validated_data.pop('password', None)
-        
         for (key, value) in validated_data.items():
             setattr(instance, key, value)
             
@@ -115,3 +116,6 @@ class UserUpdateSerializer(serializers.ModelSerializer):
         
         return instance
     
+    def delete ():
+        
+        return {"message" : "탈퇴가 완료 되었습니다."}
