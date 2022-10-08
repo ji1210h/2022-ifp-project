@@ -1,5 +1,3 @@
-from os import stat
-import os
 from django.shortcuts import render
 from rest_framework import status
 from rest_framework.permissions import AllowAny, IsAuthenticated
@@ -70,4 +68,9 @@ class UserRetrieveUpdateAPIView(RetrieveUpdateAPIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
     
     def delete(self, *args, **kwargs):
-        os.remove(os.path.join)
+        # serializer = self.serializer_class
+        user = self.user
+        user.delete()
+
+        # serializer.save()
+        # return Response(serializer.data, status=status.HTTP_200_OK)

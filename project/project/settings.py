@@ -134,7 +134,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
-
+DEFAULT_IMAGE_PATH = '/media/profile/2022/10/default.png'
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
