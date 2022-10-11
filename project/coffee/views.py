@@ -51,7 +51,6 @@ class UserRetrieveUpdateAPIView(RetrieveUpdateAPIView):
     serializer_class = UserUpdateSerializer
     
     def get(self, request, *args, **kwargs):
-        
         serializer = self.serializer_class(request.user)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
@@ -67,10 +66,8 @@ class UserRetrieveUpdateAPIView(RetrieveUpdateAPIView):
         
         return Response(serializer.data, status=status.HTTP_200_OK)
     
-    def delete(self, *args, **kwargs):
+    def delete(self, request, **kwargs):
         # serializer = self.serializer_class
-        user = self.user
+        user = User.objects.get(id=request.user.id)
         user.delete()
-
-        # serializer.save()
-        # return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response({"message":"감사합니다. 다음에 또 찾아주세요."}, status=status.HTTP_200_OK)
