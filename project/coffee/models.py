@@ -126,3 +126,8 @@ class User(AbstractBaseUser): # 실제 user 모델
     
     def update(self, *args, **kwargs):
         os.remove(os.path.join(settings.MEDIA_ROOT, self.profile_image.name))
+    
+    def get(self, *args, **kwargs):
+        self.password = self.password.decode()
+        
+        return self.password

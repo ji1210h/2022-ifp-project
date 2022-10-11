@@ -1,6 +1,6 @@
 from asyncio.windows_events import NULL
 from email.policy import default
-import profile
+from hashlib import scrypt
 from unittest.util import _MAX_LENGTH
 from django.contrib.auth import authenticate
 from django.utils import timezone
@@ -116,6 +116,3 @@ class UserUpdateSerializer(serializers.ModelSerializer):
         
         return instance
     
-    def delete ():
-        
-        return {"message" : "탈퇴가 완료 되었습니다."}
