@@ -1,4 +1,3 @@
-from asyncio.windows_events import NULL
 from email.policy import default
 from hashlib import scrypt
 from unittest.util import _MAX_LENGTH
