@@ -152,7 +152,7 @@ REST_FRAMEWORK = {
 }
 AUTH_USER_MODEL = 'coffee.User'
 
-CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:8000'
+CORS_ORIGIN_WHITELIST = ['http://15.165.237.85:8080/'
                          ,'http://localhost:8000']
 
 CORS_ALLOW_CREDENTIALS = True
