@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'rest_framework',
+    'corsheaders'
     
     'coffee',
 ]
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -149,3 +151,8 @@ REST_FRAMEWORK = {
     ),
 }
 AUTH_USER_MODEL = 'coffee.User'
+
+CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:3000'
+                         ,'http://localhost:3000']
+
+CORS_ALLOW_CREDENTIALS = True
