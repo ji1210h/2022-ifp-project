@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-8b!tvz9*s1$i=-h(=vsr290f6#)#jve)8o3=ynqti2wh1bq!v5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['15.165.237.85', '127.0.0.1']
+ALLOWED_HOSTS = ['13.125.61.174', '127.0.0.1']
 
 
 # Application definition
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'rest_framework',
-    # 'corsheaders',
+    'corsheaders',
     
     'coffee',
 ]
@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -152,7 +152,7 @@ REST_FRAMEWORK = {
 }
 AUTH_USER_MODEL = 'coffee.User'
 
-# CORS_ORIGIN_WHITELIST = ['http://15.165.237.85:8080/'
-#                          ,'http://localhost:8000']
+CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:3000'
+                         ,'http://localhost:3000']
 
-# CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_CREDENTIALS = True
