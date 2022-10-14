@@ -37,7 +37,7 @@ class LoginAPIView(APIView): #로그인 view
         
         return Response(serializer.data, status=status.HTTP_200_OK)
     
-class UserReadAPIView(RetrieveAPIView):
+class UserReadAPIView(RetrieveAPIView): #회원 조회 view
     permission_classes = (AllowAny,)
     serializer_class = UserReadSerializer
     # renderer_classes = (UserJSONRenderer,)
@@ -45,16 +45,16 @@ class UserReadAPIView(RetrieveAPIView):
     queryset = User.objects.all()
     
 
-class UserRetrieveUpdateAPIView(RetrieveUpdateAPIView):
+class UserRetrieveUpdateAPIView(RetrieveUpdateAPIView): #내 정보 수정, 읽기, 삭제 view
     permission_classes = (IsAuthenticated,)
     # renderer_classes = (UserJSONRenderer)
     serializer_class = UserUpdateSerializer
     
-    def get(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs): # 읽기
         serializer = self.serializer_class(request.user)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
-    def patch(self, request, *args, **kwargs):
+    def patch(self, request, *args, **kwargs): # 수정
         serializer_data = request.data
         serializer = self.serializer_class(
             request.user, data=serializer_data, partial=True
@@ -66,8 +66,10 @@ class UserRetrieveUpdateAPIView(RetrieveUpdateAPIView):
         
         return Response(serializer.data, status=status.HTTP_200_OK)
     
-    def delete(self, request, **kwargs):
+    def delete(self, request, **kwargs): # 삭제
         # serializer = self.serializer_class
         user = User.objects.get(id=request.user.id)
         user.delete()
         return Response({"message":"감사합니다. 다음에 또 찾아주세요."}, status=status.HTTP_200_OK)
+
+# class PostReadView(viewsets):

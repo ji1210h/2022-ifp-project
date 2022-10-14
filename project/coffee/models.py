@@ -120,7 +120,7 @@ class User(AbstractBaseUser): # 실제 user 모델
         return token.decode()
     
     def delete(self,*args,**kwargs):
-        if self.profile_image != "null":
+        if self.profile_image != "profile/2022/10/default.png":
             os.remove(os.path.join(settings.MEDIA_ROOT, self.profile_image.name))
         super(User, self).delete(*args, **kwargs)
     
