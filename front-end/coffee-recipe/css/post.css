@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+form {
+  width: 80%;
+}
+
+.title-group input {
+  width: 98%;
+  height: 60px;
+}
