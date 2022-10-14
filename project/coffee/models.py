@@ -117,7 +117,7 @@ class User(AbstractBaseUser): # 실제 user 모델
             'exp': dt.utcfromtimestamp(dt.timestamp())
         }, settings.SECRET_KEY, algorithm='HS256')
 
-        return token.decode()
+        return token
     
     def delete(self,*args,**kwargs):
         if self.profile_image != "profile/2022/10/default.png":
