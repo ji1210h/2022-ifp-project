@@ -24,3 +24,7 @@ body {
   margin: 0 5px;
   font-size: 58px;
 }
+
+input:focus {
+  outline: none;
+}
