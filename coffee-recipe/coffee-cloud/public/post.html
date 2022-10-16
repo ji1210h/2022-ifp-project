@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./stylesheets/style.css" />
+    <link rel="stylesheet" href="./stylesheets/post.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=El+Messiri&family=Hahmlet:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/6212e88fd3.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <a href="#">
+        <h1 class="logo">C<i class="fa-solid fa-mug-hot"></i>FFEE</h1>
+      </a>
+
+      <form action="" method="GET">
+        <div class="title-group">
+          <input type="text" placeholder="제목을 입력하세요" name="title"/>
+        </div>
+
+        <div class="content-group" id="editor">
+          <textarea rows="7" name="content"></textarea>
+        </div>
+
+        <button type="submit" class="btn post-btn">Post</button>
+
+      </form>
+    </div>
+
+      <script src="./javascripts/quill.js"></script>
+    </div>
+  </body>
+</html>
