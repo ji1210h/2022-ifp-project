@@ -21,7 +21,7 @@ loginBtn.addEventListener("click", (e) => {
       console.log(res);
       if (res.token) {
         localStorage.setItem("jwt-token", res.token);
-        location.href = location.origin + "/user";
+        // location.href = location.origin + "/user.html";
       } else {
         alert("이메일 혹은 비밀번호를 확인해주세요.");
       }
