@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./stylesheets/style.css" />
+    <link rel="stylesheet" href="./stylesheets/user-frame.css" />
+    <link rel="stylesheet" href="./stylesheets/user.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=El+Messiri&family=Hahmlet:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/6212e88fd3.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <a href="index.html"><i class="fa-solid fa-mug-hot"></i></a>
+      <ul class="nav">
+        <a href="user.html"><li>나의 레시피</li></a>
+        <a href="liked.html"><li>좋아요한 레시피</li></a>
+        <a href="edit-user.html"><li>정보 수정</li></a>
+      </ul>
+    </header>
+
+    <section>
+      <aside class="profile">
+        <div id="profile-img" class="profile-img"></div>
+        <div class="profile-text">
+          <h2 id="username">username</h2>
+          <p id="email">email</p>
+          <p id="birth">birth</p>
+        </div>
+      </aside>
+      <div class="wrapper">
+        <form action="">
+          <select name="category" id="">
+            <option value="none">카테고리</option>
+            <option value="1">1</option>
+            <option value="1">1</option>
+          </select>
+          <input type="button" value="삭제" />
+          <input type="button" value="글쓰기" />
+        </form>
+        <div class="content-box">
+          <ul class="content-nav">
+            <li></li>
+            <li>제목</li>
+            <li>카테고리</li>
+            <li>게시일</li>
+            <li>좋아요</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <script src="./javascripts/user-page.js"></script>
+  </body>
+</html>
