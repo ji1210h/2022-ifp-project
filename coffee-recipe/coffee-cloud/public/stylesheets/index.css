@@ -48,3 +48,19 @@
   border-top: 2px solid #3a1b11;
   height: 58px;
 }
+
+@media (max-width: 850px) {
+  .search-bar input {
+    border: 0;
+    height: 45px;
+    width: 50%;
+    margin: 0 15px;
+  }
+  .search-bar i {
+    padding-right: 0px;
+  }
+
+  .category-list li {
+    font-size: 12px;
+  }
+}

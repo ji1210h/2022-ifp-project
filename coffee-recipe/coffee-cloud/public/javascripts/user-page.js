@@ -19,7 +19,7 @@ fetch("http://13.125.61.174:8000/user/", userData)
   .then((res) => {
     console.log(res);
 
-    username.innerText = res.username;
-    email.innerText = res.email;
-    birth.innerText = res.date_of_birth;
+    // username.innerText = res.username;
+    // email.innerText = res.email;
+    // birth.innerText = res.date_of_birth;
   });
