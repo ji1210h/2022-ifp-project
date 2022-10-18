@@ -9,8 +9,11 @@ from coffee.forms import UserChangeForm, UserCreationForm
 class PostAdmin(admin.ModelAdmin):
     list_display = ('id', 'category', 'title','material_list', 'image','create_dt', 'update_dt', 'bookmark_list')
 
-    def tag_list(self, obj):
-        return ','.join([t.name for t in obj.tags.all()])
+    def category_list(self, obj):
+        return ','.join([t.name for t in obj.category.all()])
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).prefetch_related('category')
     
     def bookmark_list(self, obj):
         return ','.join([t.username for t in obj.bookmark_user.all()])
@@ -26,10 +29,6 @@ class PostAdmin(admin.ModelAdmin):
     
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name')
-    
-@admin.register(Tag)
-class TagAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
     
 @admin.register(Material)

@@ -4,7 +4,7 @@ from unittest.util import _MAX_LENGTH
 from django.contrib.auth import authenticate
 from django.utils import timezone
 from rest_framework import serializers
-from .models import User, Post
+from .models import *
 
 class UserCreateSerializer(serializers.ModelSerializer):
     profile_image = serializers.ImageField(use_url=True, default= "profile/2022/10/default.png")
@@ -115,3 +115,8 @@ class UserUpdateSerializer(serializers.ModelSerializer):
         
         return instance
     
+class PostListSerializer(serializers.ModelSerializer):
+    category = serializers.SlugRelatedField(slug_field='name', read_only=True)
+    class Meta:
+        model = Post
+        fields = ['image','title', 'bookmark_user', 'category']

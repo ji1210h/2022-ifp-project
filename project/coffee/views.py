@@ -1,10 +1,11 @@
+from typing import OrderedDict
 from django.shortcuts import render
 from rest_framework import status
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
-from rest_framework.generics import RetrieveUpdateAPIView
+from rest_framework.generics import ListAPIView, RetrieveUpdateAPIView
 from rest_framework.views import APIView
-
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.generics import RetrieveAPIView
 from .serializers import *
 from .models import User, Post
@@ -72,4 +73,25 @@ class UserRetrieveUpdateAPIView(RetrieveUpdateAPIView): #내 정보 수정, 읽�
         user.delete()
         return Response({"message":"감사합니다. 다음에 또 찾아주세요."}, status=status.HTTP_200_OK)
 
-# class PostReadView(viewsets):
+class PostNumberPagination(PageNumberPagination): # 페이지 네이션
+    page_size = 3
+    
+    def get_paginated_response(self, data):
+        return Response(OrderedDict([
+            ('PostList', data),
+            ('PageCnt', self.page.paginator.num_pages),
+            ('curPage', self.page.number),
+        ]))
+    
+class PostListAPIView(ListAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostListSerializer
+    pagination_class = PostNumberPagination
+    permission_classes = (AllowAny,)
+    
+    def get_serializer_context(self):
+        return {
+            'request' : None,
+            'format' : self.format_kwarg,
+            'view' : self
+        }
