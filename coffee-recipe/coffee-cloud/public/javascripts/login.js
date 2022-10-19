@@ -11,7 +11,6 @@ loginBtn.addEventListener("click", (e) => {
     body: JSON.stringify({ email, password }),
     headers: {
       "Content-Type": "application/json",
-      // Authorization: localStorage.getItem("jwt-token"),
     },
   };
 

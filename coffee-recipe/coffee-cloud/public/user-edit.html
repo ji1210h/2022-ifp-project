@@ -35,10 +35,17 @@
           <p id="email"></p>
           <p id="birth"></p>
         </div>
+
+        <form action="">
+          <button id="logout">로그아웃</button>
+          <button id="delete">탈퇴하기</button>
+        </form>
       </aside>
 
-      <form class="wrapper">
-        <div id="edit-img" class="profile-img edit"><!--사진추가버튼--></div>
+      <form class="wrapper" enctype="multipart/form-data">
+        <!-- <div class="profile-img edit">
+        </div> -->
+        <input type="file" accept="" id="edit-img">
 
         <div class="change name">
           <p>이름 변경</p>
@@ -46,12 +53,14 @@
         </div>
 
         <div class="change password">
-          <p>비밀번호 변경(선택)</p>
+          <p>비밀번호 변경</p>
           <input id="edit-pw"></input>
         </div>
         
+        <button id="done">적용하기</button>
       </form>
     </section>
     <script src="./javascripts/user-edit.js"></script>
+    <script src="./javascripts/user-bye.js"></script>
   </body>
 </html>
