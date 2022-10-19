@@ -18,7 +18,7 @@ loginBtn.addEventListener("click", (e) => {
   fetch("http://13.125.61.174:8000/user/login/", loginData)
     .then((response) => response.json())
     .then((res) => {
-      console.log(res);
+      // console.log(res);
       if (res.token) {
         localStorage.setItem("jwt-token", res.token);
         location.href = "/user.html";
@@ -27,4 +27,3 @@ loginBtn.addEventListener("click", (e) => {
       }
     });
 });
-이게;

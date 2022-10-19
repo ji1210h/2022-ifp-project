@@ -48,6 +48,52 @@ signupBtn.addEventListener("click", (e) => {
   fetch("http://13.125.61.174:8000/user/create/", signupData)
     .then((response) => response.json())
     .then((res) => {
-      console.log(res);
+      // console.log(res);
+
+      // email
+      if (!email) {
+        alert("이메일을 입력해주세요.");
+        return false;
+      } else if (res.email == "user with this email already exists.") {
+        alert("존재하는 이메일입니다.");
+        return false;
+      } else if (res.email == "Enter a valid email address.") {
+        alert("이메일 형식을 지켜주세요.");
+        return false;
+      }
+
+      // password
+      else if (!password) {
+        alert("패스워드를 입력해주세요.");
+        return false;
+      } else if (
+        res.password == "Ensure this field has at least 8 characters."
+      ) {
+        alert("패스워드는 8자리 이상 적어주세요.");
+        return false;
+      }
+
+      // name
+      else if (!username) {
+        alert("이름을 입력해주세요.");
+        return false;
+      } else if (res.username == "user with this username already exists.") {
+        alert("존재하는 닉네임입니다.");
+        return false;
+      }
+
+      // birth
+      else if (
+        res.date_of_birth ==
+        "Date has wrong format. Use one of these formats instead: YYYY-MM-DD."
+      ) {
+        alert("생일을 입력해주세요.");
+        return false;
+      }
+
+      // 성공시
+      else {
+        location.href = "/login.html";
+      }
     });
 });

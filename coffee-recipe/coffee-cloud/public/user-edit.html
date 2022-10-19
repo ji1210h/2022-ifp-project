@@ -19,7 +19,7 @@
   </head>
   <body>
     <header>
-      <a href="#"><i class="fa-solid fa-mug-hot"></i></a>
+      <a href="index.html"><i class="fa-solid fa-mug-hot"></i></a>
       <ul class="nav">
         <a href="user.html"><li>나의 레시피</li></a>
         <a href="liked.html"><li>좋아요한 레시피</li></a>
@@ -36,17 +36,21 @@
           <p id="birth"></p>
         </div>
       </aside>
-      <div class="wrapper">
-        <div class="profile-img edit"><!--사진추가버튼--></div>
+
+      <form class="wrapper">
+        <div id="edit-img" class="profile-img edit"><!--사진추가버튼--></div>
+
         <div class="change name">
           <p>이름 변경</p>
-          <div></div>
+          <input id="edit-name"></input>
         </div>
+
         <div class="change password">
           <p>비밀번호 변경(선택)</p>
-          <div></div>
+          <input id="edit-pw"></input>
         </div>
-      </div>
+        
+      </form>
     </section>
     <script src="./javascripts/user-edit.js"></script>
   </body>
