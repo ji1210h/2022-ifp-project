@@ -1,25 +1,3 @@
 .nav a:nth-child(2) li {
   color: #a96653;
 }
-
-.wrapper form {
-  margin-bottom: 20px;
-}
-
-.content-box {
-  width: 920px;
-  height: 100vh;
-  border: 2px solid #3a1b11;
-}
-
-.content-nav {
-  border-bottom: 2px solid #3a1b11;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 5%;
-}
-
-.content-nav li:nth-child(2) {
-  margin: 0 100px;
-}

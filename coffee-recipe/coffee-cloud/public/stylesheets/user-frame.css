@@ -1,3 +1,8 @@
+body,
+aside {
+  min-height: 73vh;
+}
+
 header {
   border-bottom: 2px solid #3a1b11;
   display: flex;
@@ -24,6 +29,11 @@ aside {
 .profile-img {
   height: 230px;
   border: 2px solid #3a1b11;
+}
+
+.profile-img img {
+  height: 230px;
+  width: 226px;
 }
 
 .profile-text {
@@ -60,10 +70,53 @@ section {
   width: 624px;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1000px) {
   aside {
     border-right: 2px solid #3a1b11;
     width: 100px;
     padding: 20px;
   }
+}
+
+.wrapper form {
+  margin-bottom: 20px;
+}
+
+.content-box {
+  width: 920px;
+  height: 100vh;
+  border: 2px solid #3a1b11;
+}
+
+.content-nav,
+.content-post {
+  border-bottom: 2px solid #3a1b11;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 5%;
+  font-weight: 600;
+}
+
+.item {
+  display: block;
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.item.id,
+.item.liked {
+  width: 50px;
+}
+.item.category,
+.item.date {
+  width: 100px;
+}
+
+.content-post {
+  padding: 15px 5%;
+  border-bottom: none;
+  font-size: 18px;
+  font-weight: 200;
 }
