@@ -3,7 +3,7 @@ from django.shortcuts import render
 from rest_framework import status
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
-from rest_framework.generics import ListAPIView, RetrieveUpdateAPIView
+from rest_framework.generics import ListAPIView, RetrieveUpdateAPIView, CreateAPIView
 from rest_framework.views import APIView
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.generics import RetrieveAPIView
@@ -74,7 +74,7 @@ class UserRetrieveUpdateAPIView(RetrieveUpdateAPIView): #내 정보 수정, 읽�
         return Response({"message":"감사합니다. 다음에 또 찾아주세요."}, status=status.HTTP_200_OK)
 
 class PostNumberPagination(PageNumberPagination): # 페이지 네이션
-    page_size = 3
+    page_size = 6
     
     def get_paginated_response(self, data):
         return Response(OrderedDict([
@@ -84,10 +84,11 @@ class PostNumberPagination(PageNumberPagination): # 페이지 네이션
         ]))
     
 class PostListAPIView(ListAPIView):
-    queryset = Post.objects.all()
+    permission_classes = (AllowAny,)
     serializer_class = PostListSerializer
     pagination_class = PostNumberPagination
-    permission_classes = (AllowAny,)
+    
+    queryset = Post.objects.all()
     
     def get_serializer_context(self):
         return {
@@ -95,3 +96,16 @@ class PostListAPIView(ListAPIView):
             'format' : self.format_kwarg,
             'view' : self
         }
+
+class PostReadAPIView(RetrieveAPIView):
+    permission_classes = (AllowAny,)
+    serializer_class = PostReadSerializer
+    
+    queryset = Post.objects.all()
+
+
+class PostCreateAPIView(CreateAPIView):
+    permission_classes = (AllowAny,)
+    serializer_class = PostCreateSerializer
+    
+    queryset = Post.objects.all()
