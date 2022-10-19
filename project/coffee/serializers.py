@@ -119,4 +119,32 @@ class PostListSerializer(serializers.ModelSerializer):
     category = serializers.SlugRelatedField(slug_field='name', read_only=True)
     class Meta:
         model = Post
-        fields = ['image','title', 'bookmark_user', 'category']
+        fields = [
+            'image',
+            'title',
+            'bookmark_user',
+            'category']
+
+class PostReadSerializer(serializers.ModelSerializer):
+    user = serializers.SlugRelatedField(slug_field='username', read_only=True)
+    material = serializers.SlugRelatedField(many=True, slug_field='name', read_only=True)
+    class Meta:
+        model = Post
+        fields =[
+            'title',
+            'material',
+            'content',
+            'create_dt',
+            'user'
+        ]
+
+class PostCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Post
+        fields =[
+            'category',
+            'image',
+            'title',
+            'material',
+            'content',
+            ]
