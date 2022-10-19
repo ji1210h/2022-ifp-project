@@ -1,3 +1,33 @@
 .nav a:nth-child(3) li {
   color: #a96653;
 }
+
+.profile-img {
+  width: 226px;
+  height: 230px;
+}
+
+input {
+  width: 400px;
+  height: 60px;
+  padding: 2% 5%;
+  margin-bottom: 10px;
+  font-size: 17px;
+  box-sizing: border-box;
+  border: 2px solid #3a1b11;
+}
+
+button {
+  padding: 2% 4%;
+  background: #f4f1f0;
+  border: 1.5px solid #3a1b11;
+  cursor: pointer;
+}
+
+#delete {
+  color: #a96653;
+}
+
+aside form button {
+  margin: 10% 2% 0;
+}
