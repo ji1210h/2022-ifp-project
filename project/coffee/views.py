@@ -1,12 +1,14 @@
-from typing import OrderedDict
+from typing import Generic, OrderedDict
 from django.shortcuts import render
-from rest_framework import status
+from rest_framework import status, permissions
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
-from rest_framework.generics import ListAPIView, RetrieveUpdateAPIView, CreateAPIView
+from rest_framework.generics import ListAPIView, RetrieveUpdateAPIView, CreateAPIView, RetrieveUpdateDestroyAPIView, GenericAPIView
 from rest_framework.views import APIView
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.generics import RetrieveAPIView
+
+from .permissions import IsOwnerOrReadOnly
 from .serializers import *
 from .models import User, Post
 from .renderers import UserJSONRenderer
@@ -105,7 +107,32 @@ class PostReadAPIView(RetrieveAPIView):
 
 
 class PostCreateAPIView(CreateAPIView):
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)
     serializer_class = PostCreateSerializer
-    
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+class PostAPIView(RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+
+class PostBookmarkAPIView(GenericAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostBookmarkSerializer
+    
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+    
+    def get(self, request, *args, **kwargs):
+        instance = self.get_object()
+        if self.request.user in instance.bookmark_user.all():
+            instance.bookmark_user.remove(self.request.user)
+        else:
+            instance.bookmark_user.add(self.request.user)
+            
+        instance.save()
+        return Response(status=status.HTTP_200_OK)

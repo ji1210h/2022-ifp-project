@@ -11,7 +11,7 @@ class Post(models.Model):
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
     title = models.CharField('TITLE', max_length=50)
     material = models.ManyToManyField('Material')
-    image = models.ImageField('IMAGE', upload_to='coffee/%Y/%m', blank=True, null=True)
+    image = models.ImageField('IMAGE', upload_to='coffee/%Y/%m', default="coffee/2022/10/default.png")
     content = models.TextField('CONTENT')
     create_dt = models.DateTimeField('CREATE DT', auto_now_add=True)
     update_dt = models.DateTimeField('UPDATE DT', auto_now=True)
@@ -24,6 +24,11 @@ class Post(models.Model):
     def __str__(self):
         return self.title
     
+    def delete(self,*args,**kwargs):
+        if self.image != "coffee/2022/10/default.jpg":
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.image.name))
+        super(Post, self).delete(*args, **kwargs)
+    
 class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)
     
@@ -35,6 +40,7 @@ class Material(models.Model):
     
     def __str__(self):
         return self.name
+
 
 class UserManager(BaseUserManager): #유저 생성시 사용하는 Helper class
     def create_user(self, email, date_of_birth, username, password=None, profile_image=None):

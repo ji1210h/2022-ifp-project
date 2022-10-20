@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # lsu # 1234
     path('', include("coffee.urls")),
+    path('api-auth/', include('rest_framework.urls')),
 ] +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
