@@ -1,6 +1,8 @@
+from asyncore import read
 from email.policy import default
 from hashlib import scrypt
 from unittest.util import _MAX_LENGTH
+from urllib import request
 from django.contrib.auth import authenticate
 from django.utils import timezone
 from rest_framework import serializers
@@ -117,6 +119,7 @@ class UserUpdateSerializer(serializers.ModelSerializer):
     
 class PostListSerializer(serializers.ModelSerializer):
     category = serializers.SlugRelatedField(slug_field='name', read_only=True)
+    bookmark_user = serializers.IntegerField(source="bookmark_user.count", read_only=True)
     class Meta:
         model = Post
         fields = [
@@ -128,23 +131,53 @@ class PostListSerializer(serializers.ModelSerializer):
 class PostReadSerializer(serializers.ModelSerializer):
     user = serializers.SlugRelatedField(slug_field='username', read_only=True)
     material = serializers.SlugRelatedField(many=True, slug_field='name', read_only=True)
+    category = serializers.SlugRelatedField(slug_field='name', read_only=True)
+    bookmark_user = serializers.IntegerField(source="bookmark_user.count", read_only=True)
     class Meta:
         model = Post
         fields =[
+            
+            'category',
             'title',
             'material',
             'content',
             'create_dt',
+            'bookmark_user',
             'user'
         ]
 
 class PostCreateSerializer(serializers.ModelSerializer):
+    image = serializers.ImageField(use_url=True, default= "coffee/2022/10/default.jpg")
+    user = serializers.ReadOnlyField(source="user.username")
     class Meta:
         model = Post
-        fields =[
+        fields = [
             'category',
+            'title',
+            'material',
             'image',
+            'content',
+            'user',
+        ]
+class PostSerializer(serializers.ModelSerializer):
+    user = serializers.ReadOnlyField(source="user.username")
+    material = serializers.SlugRelatedField(many=True, slug_field='name', queryset=Material.objects.all())
+    category = serializers.SlugRelatedField(slug_field='name', queryset=Category.objects.all())
+    class Meta:
+        model = Post
+        fields = [
+            'image',
+            'category',
             'title',
             'material',
             'content',
-            ]
+            'update_dt',
+            'user',
+        ]
+
+class PostBookmarkSerializer(serializers.ModelSerializer):
+    Bookmark_user = serializers.ReadOnlyField(source="user.username")
+    
+    class Meta:
+        model = Post
+        fields = ["bookmark_user"]
