@@ -120,13 +120,17 @@ class UserUpdateSerializer(serializers.ModelSerializer):
 class PostListSerializer(serializers.ModelSerializer):
     category = serializers.SlugRelatedField(slug_field='name', read_only=True)
     bookmark_user = serializers.IntegerField(source="bookmark_user.count", read_only=True)
+    user = serializers.SlugRelatedField(slug_field='username', read_only=True)
     class Meta:
         model = Post
         fields = [
+            'id',
             'image',
             'title',
             'bookmark_user',
-            'category']
+            'category',
+            'user'
+            ]
 
 class PostReadSerializer(serializers.ModelSerializer):
     user = serializers.SlugRelatedField(slug_field='username', read_only=True)
@@ -136,7 +140,6 @@ class PostReadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields =[
-            
             'category',
             'title',
             'material',
@@ -166,6 +169,7 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = [
+            'id',
             'image',
             'category',
             'title',

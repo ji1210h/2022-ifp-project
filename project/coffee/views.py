@@ -136,3 +136,17 @@ class PostBookmarkAPIView(GenericAPIView):
             
         instance.save()
         return Response(status=status.HTTP_200_OK)
+
+# class PostMyAPIView(GenericAPIView):
+#     permission_classes = (IsAuthenticated,)
+#     serializer_class = PostReadSerializer
+    
+    
+#     def perform_create(self, serializer):
+#         serializer.save(user=self.request.user)
+    
+#     def get(self, request, *args, **kwargs):
+#         queryset = Post.objects.all()
+        
+#         if self.request.user in queryset.user.all():
+#             serializer = self.serializer_class(request.user)
