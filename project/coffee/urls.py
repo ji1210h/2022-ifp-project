@@ -12,4 +12,5 @@ urlpatterns = [
     path('post/create/', views.PostCreateAPIView.as_view(), name='post-create'), #글 작성
     path('post/detail/<int:pk>/', views.PostAPIView.as_view(), name='post-detail'), #글 수정, 삭제
     path('post/<int:pk>/bookmark', views.PostBookmarkAPIView.as_view(), name="post-like"), # 좋아요 기능
+    # path('post/my/', views.PostMyAPIView.as_view(), name="post-mine"), # 내글 보기
  ] 
