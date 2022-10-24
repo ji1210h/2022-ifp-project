@@ -22,7 +22,7 @@
     <header>
       <a href="#"><i class="fa-solid fa-mug-hot"></i></a>
       <ul class="nav">
-        <a href="post.html"><li>글쓰기</li></a>
+        <a href="post.html" id="post-display" class="hidden"><li>글쓰기</li></a>
         <a href="login.html" id="index-login"><li>로그인</li></a>
       </ul>
     </header>
@@ -45,22 +45,13 @@
         </div>
 
         <div id="contents">
-          <!-- <div class="content">
-            <div class = "coffee-img">
-              <img src = "food.jpg" alt = "coffee">
-            </div>
-            <div class="text-box">
-              <div class="coffee-text">
-                <h3 class="title">title</h3>
-                <p class="author">author</p>
-              </div>
-              <div class="liked">
-                <i class="fa-regular fa-heart"></i>
-              </div>
-            </div>
-          </div> -->
-        </div>
 
+        </div>
+        
+        <ul id="page-cnt">
+          <!-- <li>1</li>
+          <li>2</li> -->
+        </ul>
         
         </div>
       </div>
@@ -68,5 +59,6 @@
       </div>
     </section>
     <script src="./javascripts/index.js"></script>
+    <script src="./javascripts/post-list.js"></script>
   </body>
 </html>
