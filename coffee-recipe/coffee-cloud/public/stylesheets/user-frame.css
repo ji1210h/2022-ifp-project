@@ -84,7 +84,7 @@ section {
 
 .content-box {
   width: 920px;
-  height: 100vh;
+  min-height: 100vh;
   border: 2px solid #3a1b11;
 }
 
@@ -109,9 +109,12 @@ section {
 .item.liked {
   width: 50px;
 }
-.item.category,
-.item.date {
+.item.category {
   width: 100px;
+}
+
+.item.date {
+  width: 140px;
 }
 
 .content-post {
@@ -119,4 +122,12 @@ section {
   border-bottom: none;
   font-size: 18px;
   font-weight: 200;
+}
+
+#box {
+  margin-left: 15px;
+  width: 17px;
+  height: 17px;
+  border: 2px solid #bcbcbc;
+  cursor: pointer;
 }

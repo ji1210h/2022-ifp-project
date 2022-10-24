@@ -1,3 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #3a1b11;
+  font-family: "Hahmlet", serif;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+body {
+  margin: 2% 0;
+  background-size: cover;
+  background-color: #efe7e3;
+  text-align: center;
+  height: 96vh;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo i {
+  margin: 0 5px;
+  font-size: 24px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
 .wrapper {
   display: flex;
   justify-content: center;
@@ -6,19 +40,70 @@
 }
 
 form {
-  width: 80%;
+  width: 70%;
+  position: relative;
 }
 
 .title-group input {
-  width: 98%;
   height: 60px;
-}
-
-.logo i {
-  font-size: 24px;
-}
-
-.wrapper > a {
-  border-bottom: 2px solid #3a1b11;
+  border: 1.5px solid #3a1b11;
+  box-sizing: border-box;
+  padding: 2%;
+  font-size: 23px;
+  margin: 3% 0;
   width: 100%;
+}
+
+.post-design {
+  height: 50vh;
+}
+
+.content-group {
+  min-height: 60vh;
+}
+
+.ql-toolbar.ql-snow,
+.ql-container.ql-snow {
+  border: 1.5px solid #3a1b11;
+}
+
+.post-btn {
+  border: 1.5px solid #a96653;
+  color: #a96653;
+  padding: 3px 8px;
+  background-color: transparent;
+  cursor: pointer;
+  margin-top: 5%;
+}
+
+.category {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 10.5%;
+  top: -3%;
+  padding: 3px 8px;
+  border: 1.5px solid #3a1b11;
+  width: 200px;
+}
+
+.material {
+  width: 100%;
+  border: 1.5px solid #3a1b11;
+  margin-bottom: 3%;
+}
+
+textarea {
+  width: 100%;
+  border: 1.5px solid #3a1b11;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+option {
+  text-align: center;
+}
+
+.default-option {
+  /* font-size: 24px; */
+  color: #a96653;
 }

@@ -17,7 +17,7 @@ let userData = {
 fetch("http://13.125.61.174:8000/user/", userData)
   .then((response) => response.json())
   .then((res) => {
-    console.log(res);
+    // console.log(res);
     profileImg.innerHTML = `<img src="http://13.125.61.174:8000${res.profile_image}"/>`;
     username.innerText = res.username;
     email.innerText = res.email;

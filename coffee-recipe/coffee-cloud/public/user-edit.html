@@ -16,6 +16,8 @@
       src="https://kit.fontawesome.com/6212e88fd3.js"
       crossorigin="anonymous"
     ></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <header>
@@ -42,22 +44,22 @@
         </form>
       </aside>
 
-      <form class="wrapper" enctype="multipart/form-data">
+      <form id="form-data" class="wrapper" enctype="multipart/form-data">
         <!-- <div class="profile-img edit">
         </div> -->
-        <input type="file" accept="" id="edit-img">
+        <input type="file" accept="image/*" id="edit-img" />
 
         <div class="change name">
           <p>이름 변경</p>
-          <input id="edit-name"></input>
+          <input type="text" id="edit-name" />
         </div>
 
         <div class="change password">
           <p>비밀번호 변경</p>
-          <input id="edit-pw"></input>
+          <input type="text" id="edit-pw" /><br />
         </div>
-        
-        <button id="done">적용하기</button>
+
+        <button type="submit">적용하기</button>
       </form>
     </section>
     <script src="./javascripts/user-edit.js"></script>
