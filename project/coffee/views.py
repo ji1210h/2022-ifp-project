@@ -142,8 +142,11 @@ class PostMyAPIView(RetrieveAPIView):
     serializer_class = PostReadSerializer
     
     def get(self, request, *args, **kwargs):
-        queryset = Post.objects.get(user=self.request.user)
-        print(queryset)
-        serializer = self.serializer_class(queryset)
+        queryset = Post.objects.filter(user=self.request.user)
+        serializer = self.serializer_class(data=queryset, many=True)
         
-        return Response(serializer.data)
+        serializer.is_valid()
+        serializer.save()
+        return Response({
+            'coffee' : serializer.data
+        })

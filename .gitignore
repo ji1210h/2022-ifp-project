@@ -3,3 +3,4 @@ __pycache__/
 back-end/study/venv/
 back-end/study2/venv/
 project/venv/
+./project/db.sqlite3

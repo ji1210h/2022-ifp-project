@@ -140,6 +140,7 @@ class PostReadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields =[
+            'id',
             'category',
             'title',
             'material',
