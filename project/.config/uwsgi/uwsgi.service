@@ -1,0 +1,15 @@
+[Unit]
+Description=uWSGI service
+After=syslog.target
+ 
+[Service]
+ExecStart=/home/ubuntu/2022-ifp-project/project/venv/bin/uwsgi -i /home/ubuntu/2022-ifp-project/project/.config/uwsgi/project.ini
+ 
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+StandardError=syslog
+NotifyAccess=all
+ 
+[Install]
+WantedBy=multi-user.target
