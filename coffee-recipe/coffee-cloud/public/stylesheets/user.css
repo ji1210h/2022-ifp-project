@@ -1,3 +1,9 @@
 .nav a:first-child li {
   color: #a96653;
 }
+
+.btn {
+  border: 1.5px solid #3a1b11;
+  padding: 4px 10px;
+  background-color: white;
+}

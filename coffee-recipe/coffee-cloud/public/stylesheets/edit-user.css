@@ -11,8 +11,8 @@ input {
   width: 400px;
   height: 60px;
   padding: 2% 5%;
-  margin-bottom: 10px;
-  font-size: 17px;
+  margin: 5px 0 20px;
+  font-size: 18px;
   box-sizing: border-box;
   border: 2px solid #3a1b11;
 }
@@ -30,4 +30,11 @@ button {
 
 aside form button {
   margin: 10% 2% 0;
+}
+
+#form-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./stylesheets/style.css" />
     <link rel="stylesheet" href="./stylesheets/user-frame.css" />
     <link rel="stylesheet" href="./stylesheets/user.css" />
+    <link rel="stylesheet" href="./stylesheets/post-read.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=El+Messiri&family=Hahmlet:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -22,7 +23,7 @@
       <a href="index.html"><i class="fa-solid fa-mug-hot"></i></a>
       <ul class="nav">
         <a href="user.html"><li>나의 레시피</li></a>
-        <a href="liked.html"><li>좋아요한 레시피</li></a>
+        <a href="#" id="access"><li>좋아요한 레시피</li></a>
         <a href="user-edit.html"><li>정보 수정</li></a>
       </ul>
     </header>
@@ -43,8 +44,10 @@
             <option value="1">1</option>
             <option value="1">1</option>
           </select> -->
-          <input type="button" value="삭제" />
-          <a href="./post.html"><input type="button" value="글쓰기" /></a>
+          <input class="btn" type="button" value="삭제" />
+          <a href="./post.html"
+            ><input class="btn" type="button" value="글쓰기"
+          /></a>
         </form>
         <div class="content-box">
           <ul class="content-nav">
@@ -60,7 +63,65 @@
         </div>
       </div>
     </section>
+
+    <div class="wrapper hidden post-read">
+      <!-- <a href="index.html">
+        <h1 class="logo">C<i class="fa-solid fa-mug-hot"></i>FFEE</h1>
+      </a> -->
+      <div class="header">
+        <div class="under" id="category-read"></div>
+        <div class="title-post" id="title-read"></div>
+        <div class="under userdata">
+          <div id="post-date"></div>
+          <div id="author"></div>
+        </div>
+      </div>
+      <div class="box" id="material-read"></div>
+      <div class="box" id="content-read"></div>
+    </div>
+
     <script src="./javascripts/user-page.js"></script>
     <script src="./javascripts/user-post.js"></script>
+    <script>
+      let postAboutData = {
+        method: "GET",
+      };
+
+      let categoryRead = document.getElementById("category-read");
+      let titleRead = document.getElementById("title-read");
+      let materialRead = document.getElementById("material-read");
+      let contentRead = document.getElementById("content-read");
+      let author = document.getElementById("author");
+      let postDate = document.getElementById("post-date");
+
+      let section = document.querySelector("section");
+      let wrapper = document.querySelector(".post-read");
+
+      contentList.addEventListener("click", moveToPage);
+
+      function moveToPage(e) {
+        e.preventDefault();
+        const id = e.target.parentElement.id;
+
+        fetch(`http://13.125.61.174:8000/post/${id}`, postAboutData)
+          .then((response) => response.json())
+          .then((res) => {
+            console.log(res);
+            author.innerText = res.user;
+            postDate.innerText = res.create_dt.substr(0, 10);
+            categoryRead.innerText = res.category;
+            titleRead.innerText = res.title;
+            materialRead.innerText = `[재료] ${res.material}`;
+            contentRead.innerText = res.content;
+
+            section.classList.add("hidden");
+            wrapper.classList.remove("hidden");
+          });
+      }
+
+      titleRead.addEventListener("click", deletePost);
+      function deletePost() {}
+    </script>
+    <script src="./javascripts/access-limit.js"></script>
   </body>
 </html>

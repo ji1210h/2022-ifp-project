@@ -24,7 +24,7 @@
       <a href="index.html"><i class="fa-solid fa-mug-hot"></i></a>
       <ul class="nav">
         <a href="user.html"><li>나의 레시피</li></a>
-        <a href="liked.html"><li>좋아요한 레시피</li></a>
+        <a href="#" id="access"><li>좋아요한 레시피</li></a>
         <a href="user-edit.html"><li>정보 수정</li></a>
       </ul>
     </header>
@@ -47,16 +47,19 @@
       <form id="form-data" class="wrapper" enctype="multipart/form-data">
         <!-- <div class="profile-img edit">
         </div> -->
-        <input type="file" accept="image/*" id="edit-img" />
+        <!-- <div class="change image">
+          <p>프로필 사진 변경</p>
+          <input type="file" accept="image/*" name="edit-img" />
+        </div> -->
 
         <div class="change name">
           <p>이름 변경</p>
-          <input type="text" id="edit-name" />
+          <input type="text" name="edit-name" id="edit-name" />
         </div>
 
         <div class="change password">
           <p>비밀번호 변경</p>
-          <input type="text" id="edit-pw" /><br />
+          <input type="text" name="edit-pw" id="edit-pw" /><br />
         </div>
 
         <button type="submit">적용하기</button>
@@ -64,5 +67,6 @@
     </section>
     <script src="./javascripts/user-edit.js"></script>
     <script src="./javascripts/user-bye.js"></script>
+    <script src="./javascripts/access-limit.js"></script>
   </body>
 </html>

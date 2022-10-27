@@ -15,35 +15,41 @@ form.addEventListener("submit", changeUserData);
 
 function changeUserData(e) {
   e.preventDefault();
-  let editImg = document.querySelector("#edit-img").value;
-  let editName = document.querySelector("#edit-name").value;
-  let editPw = document.querySelector("#edit-pw").value;
-
   const formData = new FormData(form);
-  // const payload = new URLSearchParams(prePayload);
-
-  formData.append("profile_img", editImg);
-  formData.append("username", editName);
-  formData.append("password", editPw);
   console.log([...formData]);
+  // const nameEdit = document.querySelector("#edit-name").value;
+  // const pwEdit = document.querySelector("#edit-pw").value;
 
-  // let userData = {
-  //   method: "PATCH",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //     Authorization: "token " + token,
-  //   },
-  //   // data: payload,
-  //   // body: JSON.stringify({
-  //   //   profile_image: editImg,
-  //   //   username: editName,
-  //   //   password: editPw,
-  //   // }),
-  // };
-  // fetch("http://13.125.61.174:8000/user/", userData)
-  //   .then((response) => response.json())
-  //   .then((res) => console.log(res))
-  //   .catch((error) => console.log(error));
+  let userData = {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "token " + token,
+    },
+    body: JSON.stringify({
+      // profile_image: "/media/profile/2022/10/" + formData.get("edit-img").name,
+      username: formData.get("edit-name"),
+      password: formData.get("edit-pw"),
+    }),
+    // body: JSON.stringify({ username: nameEdit, password: pwEdit }),
+  };
+  fetch("http://13.125.61.174:8000/user/", userData)
+    .then((response) => response.json())
+    .then((res) => {
+      // for (let value of formData.values()) {
+      //   console.log(value);
+      // }
+
+      console.log(res);
+
+      if (res.email) {
+        localStorage.clear();
+        alert("변경되었습니다. 다시 로그인해주세요.");
+        location.href = "index.html";
+      } else {
+        alert("모두 입력해주세요.");
+      }
+    });
 }
 
 // ------------------------------------------------------------

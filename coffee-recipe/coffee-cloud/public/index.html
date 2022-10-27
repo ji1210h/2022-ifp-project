@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./stylesheets/style.css" />
     <link rel="stylesheet" href="./stylesheets/user-frame.css" />
     <link rel="stylesheet" href="./stylesheets/index.css" />
+    <link rel="stylesheet" href="./stylesheets/post-read.css" />
 
     <link
       href="https://fonts.googleapis.com/css2?family=El+Messiri&family=Hahmlet:wght@300;400;500;600;700&display=swap"
@@ -18,9 +19,9 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
+  <body id="body">
     <header>
-      <a href="#"><i class="fa-solid fa-mug-hot"></i></a>
+      <a href="index.html"><i class="fa-solid fa-mug-hot"></i></a>
       <ul class="nav">
         <a href="post.html" id="post-display" class="hidden"><li>글쓰기</li></a>
         <a href="login.html" id="index-login"><li>로그인</li></a>
@@ -30,34 +31,61 @@
     <section>
       <aside class="category-list">
         <h3>재료</h3>
-        <ul>
-          <li id="marterial">초콜릿(<span id="post-count">num</span>)</li>
+        <ul id="material-list">
+          <li>초콜릿</li>
+          <li>우유</li>
+          <li>민트</li>
+          <li>연유</li>
+          <li>과일</li>
+          <li>커피빈</li>
+          <li>휘핑크림</li>
+          <li>파우더</li>
+          <li>과자</li>
+          <li>물</li>
+          <li>얼음</li>
+          <li>시럽</li>
         </ul>
       </aside>
 
       <div class="contents-wrapper">
         <div class="search-box">
           <span class="search-title">제목</span>
-          <input type="text" class="search-control" id="search-input" />
+          <input
+            type="text"
+            class="search-control"
+            id="search-input"
+            readonly
+          />
           <button type="submit" class="search-btn btn" id="search-btn">
             <i class="fas fa-search"></i>
           </button>
         </div>
 
-        <div id="contents">
+        <div id="contents"></div>
 
-        </div>
-        
         <ul id="page-cnt">
           <!-- <li>1</li>
           <li>2</li> -->
         </ul>
-        
-        </div>
-      </div>
-
       </div>
     </section>
+
+    <div class="wrapper hidden post-read">
+      <!-- <a href="index.html">
+        <h1 class="logo">C<i class="fa-solid fa-mug-hot"></i>FFEE</h1>
+      </a> -->
+      <div class="header">
+        <div class="under" id="category-read"></div>
+        <div class="title-post" id="title-read"></div>
+        <div class="under userdata">
+          <div id="post-date"></div>
+          <div id="author"></div>
+        </div>
+      </div>
+      <div class="box" id="material-read"></div>
+      <div class="box" id="content-read"></div>
+    </div>
+
     <script src="./javascripts/index.js"></script>
     <script src="./javascripts/post-list.js"></script>
   </body>
