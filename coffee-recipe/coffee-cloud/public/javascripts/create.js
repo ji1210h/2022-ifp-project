@@ -9,6 +9,7 @@ submitBtn.addEventListener("click", (e) => {
 
   let category = document.querySelector("#category").value;
   let material = Array.from(options).map(({ value }) => value);
+  // let image = document.querySelector("#upload-image").files[0].name;
   let title = document.querySelector("#title").value;
   let content = document.querySelector("#content").value;
 
@@ -24,14 +25,14 @@ submitBtn.addEventListener("click", (e) => {
   fetch("http://13.125.61.174:8000/post/create/", postCreateData)
     .then((response) => response.json())
     .then((res) => {
-      // console.log(res);
+      // console.log(image);
       // console.log(material);
       if (res.user) {
         // console.log("success");
         alert("글을 작성했습니다.");
         location.href = "index.html";
       } else {
-        alert("모두 작성했는지 확인해주세요.");
+        alert("모든 항목을 작성해주세요.");
       }
     });
 });

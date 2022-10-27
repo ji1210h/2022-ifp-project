@@ -207,3 +207,13 @@ img {
   width: 100%;
   height: 100%;
 }
+.category-list {
+  text-align: start;
+  padding: 2%;
+  box-sizing: border-box;
+}
+
+#material-list li {
+  margin: 3% 0;
+  cursor: pointer;
+}

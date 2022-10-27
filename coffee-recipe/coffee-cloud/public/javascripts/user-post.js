@@ -17,8 +17,9 @@ fetch("http://13.125.61.174:8000/post/my", myPostData)
       res.coffee.forEach((post) => {
         html += `
                 <form>
-                <ul class="content-post">
-                    <input type="checkbox" id="box">
+                <ul class="content-post" id="${post.id}">
+
+                    <li class="item id" id="">${post.id}</li>
                     <li class="item title" id="post-title">${post.title}</li>
                     <li class="item category" id="post-category">${
                       post.category
@@ -35,3 +36,5 @@ fetch("http://13.125.61.174:8000/post/my", myPostData)
     }
     contentList.innerHTML = html;
   });
+
+contentList.addEventListener("click", moveToPage);

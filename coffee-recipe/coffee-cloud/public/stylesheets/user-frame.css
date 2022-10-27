@@ -1,6 +1,6 @@
 body,
 aside {
-  min-height: 73vh;
+  min-height: 80vh;
 }
 
 header {
@@ -59,7 +59,7 @@ section {
   text-align: start;
 }
 
-.change div {
+/* .change div {
   width: 346px;
   height: 49px;
   background: #ffffff;
@@ -68,7 +68,7 @@ section {
 
 .password div {
   width: 624px;
-}
+} */
 
 @media (max-width: 1000px) {
   aside {
@@ -84,7 +84,7 @@ section {
 
 .content-box {
   width: 920px;
-  min-height: 100vh;
+  min-height: 64vh;
   border: 2px solid #3a1b11;
 }
 

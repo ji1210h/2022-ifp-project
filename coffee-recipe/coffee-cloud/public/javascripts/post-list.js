@@ -1,5 +1,7 @@
 let contents = document.querySelector("#contents");
+let content = document.querySelector(".content");
 let pages = document.querySelector("#page-cnt");
+let body = document.querySelector("#body");
 
 let postData = {
   method: "GET",
@@ -12,10 +14,11 @@ function postHtml() {
       console.log(res);
       let html = "";
       if (res.PostList) {
+        console.log(res.curPage);
         res.PostList.forEach((post) => {
           html += `
         <div class="content" id="${post.id}">
-          <div class = "coffee-img">
+          <div class = "coffee-img" >
             <img src="http://13.125.61.174:8000${post.image}" alt="default"/>
           </div>
           <div class="text-box" >
@@ -46,3 +49,40 @@ function postHtml() {
 }
 
 postHtml();
+// --------------------------------------------------
+
+let postAboutData = {
+  method: "GET",
+};
+
+let categoryRead = document.getElementById("category-read");
+let titleRead = document.getElementById("title-read");
+let materialRead = document.getElementById("material-read");
+let contentRead = document.getElementById("content-read");
+let author = document.getElementById("author");
+let postDate = document.getElementById("post-date");
+
+let section = document.querySelector("section");
+let wrapper = document.querySelector(".post-read");
+
+contents.addEventListener("click", moveToPage);
+
+function moveToPage(e) {
+  e.preventDefault();
+  const id = e.target.parentElement.id;
+
+  fetch(`http://13.125.61.174:8000/post/${id}`, postAboutData)
+    .then((response) => response.json())
+    .then((res) => {
+      console.log(res);
+      author.innerText = res.user;
+      postDate.innerText = res.create_dt.substr(0, 10);
+      categoryRead.innerText = res.category;
+      titleRead.innerText = res.title;
+      materialRead.innerText = `[재료] ${res.material}`;
+      contentRead.innerText = res.content;
+
+      section.classList.add("hidden");
+      wrapper.classList.remove("hidden");
+    });
+}

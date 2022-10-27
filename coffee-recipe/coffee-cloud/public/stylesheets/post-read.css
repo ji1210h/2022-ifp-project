@@ -1,3 +1,58 @@
 .header {
+  width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.box {
+  border: 1.5px solid #3a1b11;
+  padding: 20px;
+  margin-bottom: 30px;
+  background-color: #f7f3f1;
+}
+
+#title-read {
+  font-size: 27px;
+  /* width: 50%; */
+}
+
+#content-read {
+  min-height: 380px;
+  text-align: start;
+}
+#material-read {
+  text-align: start;
+}
+
+.title-post {
+  margin: 3% 0;
+}
+#category-read {
+  width: 100px;
+}
+.userdata {
+  display: flex;
+}
+
+#author {
+  margin-left: 10px;
+}
+
+.under {
+  border-bottom: 2px solid #3a1b11;
+  padding-bottom: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+.post-read {
+  margin: 2.5% 25%;
+}
+
+form .title {
+  cursor: pointer;
 }
